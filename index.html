@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEETING สิบศิลป์สิริศาสตร์ชมความงามของพระนคร</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #8B0000 0%, #1a0000 100%);
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #ffffff;
+            --bg-gray: #f9f9f9;
+            --accent: #8B0000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: var(--bg-light);
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .header-content p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* Summary Section */
+        .summary-container {
+            max-width: 900px;
+            margin: -2rem auto 3rem;
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 0 1.5rem;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .summary-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .summary-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Timeline Section */
+        .itinerary-section {
+            max-width: 800px;
+            margin: 0 auto 5rem;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: var(--primary-gradient);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--bg-light);
+            border: 3px solid var(--accent);
+            z-index: 2;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: var(--primary-gradient);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .content-card {
+            background: var(--bg-gray);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+
+        .content-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .content-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .meta-info span {
+            background: rgba(139, 0, 0, 0.08);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+            .timeline-item {
+                padding-left: 45px;
+            }
+            .timeline::before {
+                left: 15px;
+            }
+            .timeline-item::before {
+                left: 9px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>MEETING สิบศิลป์สิริศาสตร์</h1>
+            <p>ชมความงามของพระนคร | ทริปเดินเท้าสัมผัสวัฒนธรรมและสถาปัตยกรรม</p>
+        </div>
+    </header>
+
+    <div class="summary-container">
+        <div class="summary-card">
+            <i class="fas fa-shoe-prints"></i>
+            <h3>ระยะทางรวม</h3>
+            <p>ประมาณ 4.5 กิโลเมตร<br>(แนะนำให้สวมรองเท้าที่เดินสบาย)</p>
+        </div>
+        <div class="summary-card">
+            <i class="fas fa-wallet"></i>
+            <h3>งบประมาณต่อคน</h3>
+            <p>ประมาณ 250 - 300 บาท<br>(รวมค่าเข้าชมและค่าอาหารกลางวัน)</p>
+        </div>
+        <div class="summary-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <h3>จุดนัดพบ</h3>
+            <p>MRT สนามไชย<br>ทางออกมิวเซียมสยาม</p>
+        </div>
+    </div>
+
+    <section class="itinerary-section">
+        <h2 class="section-title">เส้นทางการเดินทาง</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="time-badge">09:00 น.</span>
+                <div class="content-card">
+                    <h4>จุดนัดพบ: MRT สนามไชย</h4>
+                    <p>รวมตัวกันที่ทางออกมิวเซียมสยาม เตรียมความพร้อมก่อนเริ่มทริป</p>
+                    <div class="meta-info">
+                        <span><i class="fas fa-walking"></i> ระยะทางไปจุดต่อไป: 350 ม.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="time-badge">ช่วงสาย</span>
+                <div class="content-card">
+                    <h4>วัดพระเชตุพนวิมลมังคลาราม (วัดโพธิ์)</h4>
+                    <p>สักการะพระพุทธไสยาสน์ (พระนอน) และชมความงามของสถาปัตยกรรมภายในวัด</p>
+                    <div class="meta-info">
+                        <span><i class="fas fa-ticket-alt"></i> คนไทยเข้าฟรี</span>
+                        <span><i class="fas fa-walking"></i> เดินย้อนกลับ: 350 ม.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="time-badge">10:30 น.</span>
+                <div class="content-card">
+                    <h4>มิวเซียมสยาม (Museum Siam)</h4>
+                    <p>ชมนิทรรศการถอดรหัสไทย เรียนรู้ประวัติศาสตร์ผ่านสื่ออินเทอร์แอคทีฟ</p>
+                    <div class="meta-info">
+                        <span><i class="fas fa-ticket-alt"></i> นศ. (15 ปีขึ้นไป) 50 บาท</span>
+                        <span><i class="fas fa-walking"></i> เดินเลาะตึก: 1.5 กม.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="time-badge">พักเหนื่อย</span>
+                <div class="content-card">
+                    <h4>ร้านไอติมมะพร้าวอ่อนสูตรโบราณ มลทิพย์</h4>
+                    <p>เดินออกทางหลังมิวเซียม ลัดเลาะชมสถาปัตยกรรมตึกเก่า และแวะเติมพลังด้วยไอศกรีมเย็นชื่นใจ</p>
+                    <div class="meta-info">
+                        <span><i class="fas fa-coins"></i> ค่าใช้จ่าย: ~40-50 บาท</span>
+                        <span><i class="fas fa-walking"></i> เดินไปท่าพระจันทร์: 400 ม.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="time-badge">12:30 น.</span>
+                <div class="content-card">
+                    <h4>มื้อเที่ยง: ร้านแอ๊ว ท่าพระจันทร์</h4>
+                    <p>เดินเรื่อยๆ มาจนถึงท่าพระจันทร์ แวะทานอาหารกลางวันร้านเด็ดในตำนาน</p>
+                    <div class="meta-info">
+                        <span><i class="fas fa-coins"></i> ค่าอาหาร: ~80-100 บาท</span>
+                        <span><i class="fas fa-walking"></i> ระยะทางเดินชมตึก: 800 ม.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="time-badge">ช่วงบ่าย</span>
+                <div class="content-card">
+                    <h4>มหาวิทยาลัยศิลปากร & ธรรมศาสตร์ - พิพิธภัณฑ์พระนคร</h4>
+                    <p>เดินย่อยอาหารเลาะชมสถาปัตยกรรมของสองมหาวิทยาลัยเก่าแก่ จนถึงพิพิธภัณฑสถานแห่งชาติ พระนคร ชมโบราณวัตถุชิ้นสำคัญ</p>
+                    <div class="meta-info">
+                        <span><i class="fas fa-ticket-alt"></i> ค่าเข้าพิพิธภัณฑ์ (คนไทย): 30 บาท</span>
+                        <span><i class="fas fa-walking"></i> เดินไปวัดพระแก้ว: 600 ม.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="time-badge">ช่วงเย็น</span>
+                <div class="content-card">
+                    <h4>วัดพระศรีรัตนศาสดาราม (วัดพระแก้ว)</h4>
+                    <p>ชมความวิจิตรของวัดคู่บ้านคู่เมืองในช่วงแสงเย็นที่สวยงาม ก่อนเดินทอดน่องกลับ</p>
+                    <div class="meta-info">
+                        <span><i class="fas fa-ticket-alt"></i> คนไทยเข้าฟรี</span>
+                        <span><i class="fas fa-walking"></i> เดินกลับ MRT: 1.2 กม.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <span class="time-badge">จบจุดหมาย</span>
+                <div class="content-card">
+                    <h4>MRT สนามไชย</h4>
+                    <p>เดินทางกลับโดยสวัสดิภาพ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Prepared for MEETING SSU | 2026</p>
+    </footer>
+
+</body>
+</html>
